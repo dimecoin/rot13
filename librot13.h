@@ -1,7 +1,7 @@
 #ifndef ROT13_H
 #define ROT13_H
 
-#define ROT13_VERSION_STRING  "0.4"
+#define ROT13_VERSION_STRING  "0.5"
 
 typedef enum {ROT5, ROT13, ROT13_ROT5, ROT47 } rot_type;
 
