@@ -28,7 +28,7 @@ return (output);
 }
 
 /**
- * Takes an input string, applies rot13 and provides an output string
+ * Takes an input string, applies rot and provides an output string
  *
  * input:  string to convert
  * output: pointer to string to return
@@ -39,7 +39,7 @@ return (output);
  * no affect on special characters or numbers
  *
  */
-void rot13 (char *input, char *output, bool useRot5) {
+void rot (rot_type rotType, char *input, char *output) {
 
 	// This makes sure output is in a good state... 
 	// if we dont' do this and they pass in array then it can get garbled for small values
@@ -50,19 +50,31 @@ void rot13 (char *input, char *output, bool useRot5) {
 	for (int i=0; i<strlen(input); i++) {
 		int asci = (int) input[i];
 
-		// 65 = A, 90=Z
-		if (asci >= 65 && asci <= 90) {
-			asci = rollover(65, 90, 13, asci);
+
+		if (rotType == ROT13 || rotType == ROT13_ROT5) {
+			// 65 = A, 90=Z
+			if (asci >= 65 && asci <= 90) {
+				asci = rollover(65, 90, 13, asci);
+			}
+
+			// 97=a, 122 = z	
+			if (asci >= 97 && asci <= 122) {
+				asci = rollover(97, 122, 13, asci);
+			}
+		}
+		
+		if (rotType == ROT5 || rotType == ROT13_ROT5) {
+			// 48=0, 57=9
+			if (asci >= 48 && asci <= 57)  {
+				asci = rollover(48, 57, 5, asci);
+			}
 		}
 
-		// 97=a, 122 = z	
-		if (asci >= 97 && asci <= 122) {
-			asci = rollover(97, 122, 13, asci);
-		}
-
-		// 48=0, 57=9
-		if (useRot5 && asci >= 48 && asci <= 57)  {
-			asci = rollover(48, 57, 5, asci);
+		if (rotType == ROT47) {
+			// 48=0, 57=9
+			if (asci >= 33 && asci <= 126)  {
+				asci = rollover(33, 126, 47, asci);
+			}
 		}
 
 	output[i] = (char) asci;

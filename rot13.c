@@ -5,7 +5,10 @@
 
 #include "librot13.h"
 bool verbose= false;
+
 bool useRot5 = false;
+bool useRot13 = true;
+bool useRot47 = false;
 
 void printHelp(char *name) {
 	puts ("\nROT13 Version: " ROT13_VERSION_STRING "\n");
@@ -15,14 +18,28 @@ void printHelp(char *name) {
 
 	printf( "%10s, %-15s %s\n", "-",  "--", "Reads from STDIN.");
 	printf( "%10s, %-15s %s\n", "-v",  "--verbose", "Verbose output.");
-	printf( "%10s, %-15s %s\n", "-5",  "--rot5", "Use ROT5 for numbers (default is false).");
+	printf( "%10s, %-15s %s\n", "-5",  "--rot5", "Use ROT13 with ROT5 for numbers.");
+	printf( "%10s, %-15s %s\n", "-13",  "--rot13", "Use ROT13 (default).");
+	printf( "%10s, %-15s %s\n", "-47",  "--rot47", "Use ROT47.");
 	printf( "%10s, %-15s %s\n", "-h",  "--help", "Prints help menu.");
 }
 
+rot_type getRotType() {
+
+	if (useRot5) {
+		return ( ROT13_ROT5 );
+	}
+
+	if (useRot47) {
+		return ( ROT47 );
+	}
+
+return (ROT13);
+}
 void printLine(char *input) {
 
 	char output[strlen(input)];
-	rot13(input, output, useRot5);
+	rot(getRotType(), input, output);
 
 	if (verbose) {
 		printf ("In : %s\n", input);
@@ -30,9 +47,7 @@ void printLine(char *input) {
 	} else {
 		printf("%s ", output);
 	}
-
 }
-
 
 int main(int argc, char *argv[]) {
 
@@ -65,6 +80,12 @@ int main(int argc, char *argv[]) {
 			if (strcmp(argv[i], "-5") == 0 || strcmp(argv[i], "--rot5") == 0 ) {
 				useRot5 = true;
 			}
+			if (strcmp(argv[i], "-13") == 0 || strcmp(argv[i], "--rot5") == 0 ) {
+				useRot13 = true;
+			}
+			if (strcmp(argv[i], "-47") == 0 || strcmp(argv[i], "--rot5") == 0 ) {
+				useRot47 = true;
+			}
 
 			if (strcmp(argv[i], "-") == 0 || strcmp(argv[i], "--") == 0) {
 
@@ -83,9 +104,6 @@ int main(int argc, char *argv[]) {
 	}
 
 
-
-
-
 	// Process our input
 	for (int i=1; i<argc; i++) {
 
@@ -101,19 +119,5 @@ int main(int argc, char *argv[]) {
 printf("\n");
 exit(EXIT_SUCCESS);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
