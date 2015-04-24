@@ -19,7 +19,7 @@ Supports [ROT13](http://en.wikipedia.org/wiki/ROT13) with [optionally] [ROT5](ht
 ### Platforms:
 - [x] Linux
 - [x] Mac
-- [] Windows
+- [ ] Windows
 
 ### Motivation
 I'm trying to [re]learn, C, Make and git!  Feedback, constructive criticism, and pull requests are appreciated!
