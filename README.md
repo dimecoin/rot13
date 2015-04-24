@@ -6,20 +6,20 @@ Supports [ROT13](http://en.wikipedia.org/wiki/ROT13) with [optionally] [ROT5](ht
 
 
 ## Features
-[x] Reads from command line
-[x] Reads from STDIN (for interactive console or piping)
-[x] No Heap allocation
-[x] Compiles cleanly with C99 or C11 compiler without warnings
+- [x] Reads from command line
+- [x] Reads from STDIN (for interactive console or piping)
+- [x] No Heap allocation
+- [x] Compiles cleanly with C99 or C11 compiler without warnings
 
 ### Supports
-[x] ROT13
-[x] ROT5 (for numbers)
-[x] ROT47 (extended ROT13)
+- [x] ROT13
+- [x] ROT5 (for numbers)
+- [x] ROT47 (extended ROT13)
 
 ### Platforms:
-[x] Linux
-[x] Mac
-[] Windows
+- [x] Linux
+- [x] Mac
+- [] Windows
 
 ### Motivation
 I'm trying to [re]learn, C, Make and git!  Feedback, constructive criticism, and pull requests are appreciated!
