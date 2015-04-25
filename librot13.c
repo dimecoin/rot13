@@ -29,14 +29,10 @@ return (output);
 
 /**
  * Takes an input string, applies rot and provides an output string
- *
+ *  
+ * rotType: rot_type defined in header file
  * input:  string to convert
  * output: pointer to string to return
- *
- * This is the standard rot13 encoding.  
- * Upper case stays upper case and lower case stays lower case.
- * both shifted 13 letters
- * no affect on special characters or numbers
  *
  */
 void rot (rot_type rotType, char *input, char *output) {
