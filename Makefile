@@ -27,6 +27,10 @@ librot13:
 rot13: librot13
 	$(CC) $(CFLAGS) -lrot13 rot13.c -o rot13
 
+example: librot13
+	$(CC) $(CFLAGS) -lrot13 example.c -o example
+
+
 tests:
 	./rot13 this is a normal test 123 
 	./rot13 -5 this is a rot5 test 123 
