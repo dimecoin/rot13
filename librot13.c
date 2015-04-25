@@ -37,7 +37,8 @@ return (output);
  */
 void rot (rot_type rotType, char *input, char *output) {
 
-	for (int i=0; i<strlen(input); i++) {
+	int size = strlen(input);
+	for (int i=0; i<size; i++) {
 		int asci = (int) input[i];
 
 		if (rotType == ROT13 || rotType == ROT13_ROT5) {

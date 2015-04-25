@@ -1,7 +1,7 @@
 #ifndef ROT13_H
 #define ROT13_H
 
-#define ROT13_VERSION_STRING  "0.6"
+#define ROT13_VERSION_STRING  "0.7"
 
 static const int ASCII_UPPERCASE_A='A';
 static const int ASCII_UPPERCASE_Z='Z';
