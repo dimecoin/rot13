@@ -22,6 +22,8 @@ void printHelp(char *name) {
 	printf( "%10s, %-15s %s\n", "-13",  "--rot13", "Use ROT13 (default).");
 	printf( "%10s, %-15s %s\n", "-47",  "--rot47", "Use ROT47.");
 	printf( "%10s, %-15s %s\n", "-h",  "--help", "Prints help menu.");
+	
+	printf( "\n");
 }
 
 rot_type getRotType() {
@@ -40,8 +42,10 @@ void printLine(char *input) {
 
 	char *output;
 
+	bool useHeap = strlen(input) > BUFSIZ;
+	
 	// Allocate on heap if input > BUFSIZ
-	if (strlen(input) > BUFSIZ) {
+	if (useHeap) {
 		output= malloc( strlen(input) * sizeof(char) );
 		if (output== NULL) {
 			fprintf(stderr, "Error allocating memory for *outputbuffer");
@@ -61,6 +65,10 @@ void printLine(char *input) {
 		printf ("Out: %s\n", output);
 	} else {
 		printf("%s ", output);
+	}
+
+	if (useHeap) {
+		free(output);
 	}
 }
 
