@@ -24,9 +24,7 @@ I'm trying to [re]learn, C, Make and git!  Feedback, constructive criticism, and
 - [ ] Windows
 
 
-# Building
 
-Makefile is include, just run `make`.  No external deps.  Tested with "gcc version 4.7.2 (Debian 4.7.2-5)"
 
 
 
