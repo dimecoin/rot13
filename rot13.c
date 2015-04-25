@@ -58,7 +58,10 @@ void printLine(char *input) {
 		output = &(*outputStack);
 	}
 
-	rot(getRotType(), input, output);
+	if ( ! rot(getRotType(), input, output) ){
+		fprintf(stderr, "Error occured with rot function.\n");
+		exit(EXIT_FAILURE);	
+	}
 
 	if (verbose) {
 		printf ("In : %s\n", input);

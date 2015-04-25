@@ -34,8 +34,17 @@ return (output);
  * input:  string to convert
  * output: pointer to string to return
  *
+ * returns true on success, false on failure (of any kind).
+ *
  */
-void rot (rot_type rotType, char *input, char *output) {
+bool rot (rot_type rotType, char *input, char *output) {
+
+	// Check for null pointers. 
+	// any other santiy checks we can do?
+	// TODO: Should also push to perror error message?  Need to research this.
+	if (!input || !output) {
+		return (false);
+	}
 
 	int size = strlen(input);
 	for (int i=0; i<size; i++) {
@@ -69,7 +78,8 @@ void rot (rot_type rotType, char *input, char *output) {
 
 	// terminate string, input/output should be same size
 	output[strlen(input)] = '\0';
-return;
+
+return (true);
 }
 
 
