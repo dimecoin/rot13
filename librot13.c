@@ -41,28 +41,25 @@ void rot (rot_type rotType, char *input, char *output) {
 		int asci = (int) input[i];
 
 		if (rotType == ROT13 || rotType == ROT13_ROT5) {
-			// 65 = A, 90=Z
-			if (asci >= 65 && asci <= 90) {
-				asci = rollover(65, 90, 13, asci);
+
+			if (asci >= ASCII_UPPERCASE_A && asci <= ASCII_UPPERCASE_Z) {
+				asci = rollover(ASCII_UPPERCASE_A, ASCII_UPPERCASE_Z, 13, asci);
 			}
 
-			// 97=a, 122 = z	
-			if (asci >= 97 && asci <= 122) {
-				asci = rollover(97, 122, 13, asci);
+			if (asci >= ASCII_LOWERCASE_A && asci <= ASCII_LOWERCASE_Z) {
+				asci = rollover(ASCII_LOWERCASE_A, ASCII_LOWERCASE_Z, 13, asci);
 			}
 		}
 		
 		if (rotType == ROT5 || rotType == ROT13_ROT5) {
-			// 48=0, 57=9
-			if (asci >= 48 && asci <= 57)  {
-				asci = rollover(48, 57, 5, asci);
+			if (asci >= ASCII_NUMBER_0 && asci <= ASCII_NUMBER_9)  {
+				asci = rollover(ASCII_NUMBER_0, ASCII_NUMBER_9, 5, asci);
 			}
 		}
 
 		if (rotType == ROT47) {
-			// 48=0, 57=9
-			if (asci >= 33 && asci <= 126)  {
-				asci = rollover(33, 126, 47, asci);
+			if (asci >= ASCII_PRINTABLE_START && asci <= ASCII_PRINTABLE_END)  {
+				asci = rollover(ASCII_PRINTABLE_START, ASCII_PRINTABLE_END, 47, asci);
 			}
 		}
 
