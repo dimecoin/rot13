@@ -24,9 +24,14 @@ I'm trying to [re]learn, C, Make and git!  Feedback, constructive criticism, and
 - [ ] Windows
 
 
+# Using the program:
 
+export LD_LIBRARY_PATH=. # path where librot13.so lives
+./rot13 --help # to get usage
 
+# Using the library:
 
+see example.c (see Makefile for compling directions)
 
 
 
