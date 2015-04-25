@@ -35,6 +35,7 @@ return (output);
  * output: pointer to string to return
  *
  * returns true on success, false on failure (of any kind).
+ * 	Should not trust *output on error, no contract on what it's state will be
  *
  */
 bool rot (rot_type rotType, char *input, char *output) {
