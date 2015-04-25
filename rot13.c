@@ -91,9 +91,9 @@ int main(int argc, char *argv[]) {
 			if (strcmp(argv[i], "-") == 0 || strcmp(argv[i], "--") == 0) {
 
 				char input[BUFSIZ];
-				while (fgets(input, sizeof(input), stdin)) {
+
+				while (fgets(input, BUFSIZ, stdin)) {
 					if (input[strlen(input)-1] == '\n') {
-						//input[strlen(input)-1] = '\0';
 						printLine(input);
 					}
 				}
