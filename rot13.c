@@ -38,12 +38,20 @@ return (ROT13);
 }
 void printLine(char *input) {
 
-	// +1 to account for null terminator
-	char *output= malloc( strlen(input) * sizeof(char) + 1 );
-	if (output== NULL) {
-		fprintf(stderr, "Error allocating memory for *outputbuffer");
-		perror("");
-		exit (EXIT_FAILURE);
+	char *output;
+
+	// Allocate on heap if input > BUFSIZ
+	if (strlen(input) > BUFSIZ) {
+		output= malloc( strlen(input) * sizeof(char) );
+		if (output== NULL) {
+			fprintf(stderr, "Error allocating memory for *outputbuffer");
+			perror("");
+			exit (EXIT_FAILURE);
+		}
+	} else {
+		// we have enough room on stack
+		char outputStack[BUFSIZ];
+		output = &(*outputStack);
 	}
 
 	rot(getRotType(), input, output);
