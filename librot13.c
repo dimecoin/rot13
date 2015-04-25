@@ -37,15 +37,8 @@ return (output);
  */
 void rot (rot_type rotType, char *input, char *output) {
 
-	// This makes sure output is in a good state... 
-	// if we dont' do this and they pass in array then it can get garbled for small values
-	// for example "a" is outputed as "nhgchg"
-	// memory corruption?  strcpy fixes it.
-	strcpy(output, input);
-
 	for (int i=0; i<strlen(input); i++) {
 		int asci = (int) input[i];
-
 
 		if (rotType == ROT13 || rotType == ROT13_ROT5) {
 			// 65 = A, 90=Z
@@ -75,8 +68,9 @@ void rot (rot_type rotType, char *input, char *output) {
 
 	output[i] = (char) asci;
 	}
-	
 
+	// terminate string
+	output[strlen(output)-1] = '\0';	
 return;
 }
 
