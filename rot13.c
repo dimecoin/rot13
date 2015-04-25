@@ -38,7 +38,8 @@ return (ROT13);
 }
 void printLine(char *input) {
 
-	char output[strlen(input)];
+	// +1 to account for null terminator
+	char output[strlen(input) + 1];
 	rot(getRotType(), input, output);
 
 	if (verbose) {

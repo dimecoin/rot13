@@ -66,8 +66,8 @@ void rot (rot_type rotType, char *input, char *output) {
 	output[i] = (char) asci;
 	}
 
-	// terminate string
-	output[strlen(input)] = '\0';	
+	// terminate string, input/output should be same size
+	output[strlen(input)] = '\0';;
 return;
 }
 
