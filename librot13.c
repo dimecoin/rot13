@@ -67,7 +67,7 @@ void rot (rot_type rotType, char *input, char *output) {
 	}
 
 	// terminate string
-	output[strlen(output)-1] = '\0';	
+	output[strlen(input)] = '\0';	
 return;
 }
 
