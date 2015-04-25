@@ -26,6 +26,8 @@ I'm trying to [re]learn, C, Make and git!  Feedback, constructive criticism, and
 
 # Using the program:
 
+make # to build program
+
 export LD_LIBRARY_PATH=. # path where librot13.so lives
 
 ./rot13 --help # to get usage
