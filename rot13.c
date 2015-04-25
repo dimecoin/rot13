@@ -39,7 +39,13 @@ return (ROT13);
 void printLine(char *input) {
 
 	// +1 to account for null terminator
-	char output[strlen(input) + 1];
+	char *output= malloc( strlen(input) * sizeof(char) + 1 );
+	if (output== NULL) {
+		fprintf(stderr, "Error allocating memory for *outputbuffer");
+		perror("");
+		exit (EXIT_FAILURE);
+	}
+
 	rot(getRotType(), input, output);
 
 	if (verbose) {
